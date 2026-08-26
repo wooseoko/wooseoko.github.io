@@ -52,10 +52,8 @@
         {% assign marked_last = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' %}
         {% assign is_self = false %}
 
-        {% if site.scholar.last_name contains clean_last %}
-          {% if site.scholar.first_name contains author.first %}
-            {% assign is_self = true %}
-          {% endif %}
+        {% if clean_last == 'Oh' and author.first == 'Wooseok' %}
+          {% assign is_self = true %}
         {% endif %}
 
         {% if is_self %}
@@ -76,7 +74,7 @@
 
     {% if entry.annotation %}
       <div class="periodical">
-        <small>{{ entry.annotation }}</small>
+        <strong>{{ entry.annotation }}</strong>
       </div>
     {% endif %}
 
