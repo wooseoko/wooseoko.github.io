@@ -1,41 +1,109 @@
 ---
 ---
-<div class="row">
+<style>
+  .pub-custom-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .pub-custom-media {
+    flex: 0 0 44%;
+    max-width: 44%;
+    min-width: 0;
+  }
+
+  .pub-custom-info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .pub-venue-bar {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 0 0.5rem 0;
+    padding: 0.55em 0.75em;
+    border-radius: 0.3rem;
+    color: #fff !important;
+    text-align: center;
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .pub-venue-bar a,
+  .pub-venue-bar span {
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .pub-preview-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--global-bg-color);
+    border-radius: 0.3rem;
+  }
+
+  .pub-preview-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .pub-preview-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media (max-width: 767.98px) {
+    .pub-custom-row {
+      display: block;
+    }
+
+    .pub-custom-media,
+    .pub-custom-info {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .pub-custom-media {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+<div class="pub-custom-row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col-12 col-md-6 abbr" style="padding-right: 1.25rem; margin-bottom: 0.85rem;">
+    <div class="pub-custom-media">
       {% if entry.abbr %}
         {% assign venue = site.data.venues[entry.abbr] %}
-
         {% if entry.type == 'article' %}
           {% assign badge_color = '#2E7D32' %}
         {% else %}
           {% assign badge_color = '#1565C0' %}
         {% endif %}
 
-        <div style="width: 100%; margin-bottom: 0.5rem;">
-          <abbr
-            class="badge rounded"
-            style="
-              width: 100%;
-              display: block;
-              box-sizing: border-box;
-              background-color: {{ badge_color }} !important;
-              color: #ffffff !important;
-              padding: 0.55em 0.75em;
-              font-size: 1.05rem;
-              font-weight: 700;
-              letter-spacing: 0.01em;
-              text-align: center;
-            "
-          >
-            {% if venue and venue.url %}
-              <a href="{{ venue.url }}" style="color: #ffffff !important; text-decoration: none; display: block; width: 100%;">
-                {{ entry.abbr }}
-              </a>
-            {% else %}
-              <span style="color: #ffffff !important; display: block; width: 100%;">{{ entry.abbr }}</span>
-            {% endif %}
-          </abbr>
+        <div class="pub-venue-bar" style="background-color: {{ badge_color }} !important;">
+          {% if venue and venue.url %}
+            <a href="{{ venue.url }}">{{ entry.abbr }}</a>
+          {% else %}
+            <span>{{ entry.abbr }}</span>
+          {% endif %}
         </div>
       {% endif %}
 
@@ -46,56 +114,21 @@
           {% assign preview_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
         {% endunless %}
 
-        <div
-          class="z-depth-1 rounded"
-          style="
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--global-bg-color);
-          "
-        >
+        <div class="pub-preview-frame z-depth-1">
           {% if preview_ext == 'mp4' or preview_ext == 'webm' or preview_ext == 'ogg' or preview_ext == 'mov' %}
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              style="
-                width: 100%;
-                height: 100%;
-                display: block;
-                object-fit: cover;
-                object-position: center;
-              "
-            >
+            <video autoplay muted loop playsinline preload="metadata">
               <source src="{{ preview_path }}">
             </video>
           {% else %}
-            <img
-              src="{{ preview_path }}"
-              alt="{{ entry.title | escape }}"
-              loading="lazy"
-              style="
-                width: 100%;
-                height: 100%;
-                display: block;
-                object-fit: contain;
-                object-position: center;
-              "
-            >
+            <img src="{{ preview_path }}" alt="{{ entry.title | escape }}" loading="lazy">
           {% endif %}
         </div>
       {% endif %}
     </div>
   {% endif %}
 
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-12 col-md-6{% else %}col-12{% endif %}">
-    <div class="title">{{ entry.title }}</div>
+  <div id="{{ entry.key }}" class="pub-custom-info">
+<div class="title">{{ entry.title }}</div>
 
     <div class="author">
       {% assign author_count = entry.author_array | size %}
