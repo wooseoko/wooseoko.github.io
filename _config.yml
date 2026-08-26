@@ -2,13 +2,11 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: My website # the website title (if blank, full name will be used instead)
+title:
 first_name: Wooseok
 middle_name:
 last_name: Oh
 contact_note: >
-  email: wooseok.oh@rllab.snu.ac.kr
-  You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
