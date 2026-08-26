@@ -5,17 +5,20 @@
     <div class="col col-sm-2 abbr">
       {% if entry.abbr %}
         {% assign venue = site.data.venues[entry.abbr] %}
-        {% if venue and venue.color %}
-          <abbr class="badge rounded w-100" style="background-color: {{ venue.color }};">
-            {% if venue.url %}
-              <a href="{{ venue.url }}">{{ entry.abbr }}</a>
-            {% else %}
-              <div>{{ entry.abbr }}</div>
-            {% endif %}
-          </abbr>
+
+        {% if entry.type == 'article' %}
+          {% assign badge_color = '#2E7D32' %}
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+          {% assign badge_color = '#1565C0' %}
         {% endif %}
+
+        <abbr class="badge rounded w-100" style="background-color: {{ badge_color }} !important; color: #ffffff !important;">
+          {% if venue and venue.url %}
+            <a href="{{ venue.url }}" style="color: #ffffff !important;">{{ entry.abbr }}</a>
+          {% else %}
+            <span style="color: #ffffff !important;">{{ entry.abbr }}</span>
+          {% endif %}
+        </abbr>
       {% endif %}
 
       {% if entry.preview %}
@@ -26,7 +29,14 @@
         {% endunless %}
 
         {% if preview_ext == 'mp4' or preview_ext == 'webm' or preview_ext == 'ogg' or preview_ext == 'mov' %}
-          <video class="preview z-depth-1 rounded" autoplay muted loop playsinline preload="metadata">
+          <video
+            class="preview z-depth-1 rounded"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
             <source src="{{ preview_path }}">
           </video>
         {% else %}
@@ -47,17 +57,18 @@
     <div class="author">
       {% assign author_count = entry.author_array | size %}
       {% assign penultimate_author = author_count | minus: 1 %}
+
       {% for author in entry.author_array %}
         {% assign clean_last = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' %}
         {% assign marked_last = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' %}
-        {% assign is_self = false %}
 
+        {% assign is_self = false %}
         {% if clean_last == 'Oh' and author.first == 'Wooseok' %}
           {% assign is_self = true %}
         {% endif %}
 
         {% if is_self %}
-          <strong class="author-self">{{ author.first }} {{ marked_last }}</strong>
+          <strong style="font-weight: 700;">{{ author.first }} {{ marked_last }}</strong>
         {% else %}
           {{ author.first }} {{ marked_last }}
         {% endif %}
@@ -74,7 +85,7 @@
 
     {% if entry.annotation %}
       <div class="periodical">
-        <strong>{{ entry.annotation }}</strong>
+        <strong style="font-weight: 700;">{{ entry.annotation }}</strong>
       </div>
     {% endif %}
 
@@ -91,6 +102,26 @@
 
     {% if entry.note %}
       <div class="periodical">{{ entry.note }}</div>
+    {% endif %}
+
+    {% if entry.keywords and page.permalink == '/publications/' %}
+      {% assign keyword_list = entry.keywords | split: ',' %}
+      <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;">
+        {% for keyword in keyword_list %}
+          <span
+            class="badge rounded-pill"
+            style="
+              margin-right: 0.25rem;
+              margin-bottom: 0.25rem;
+              padding: 0.35em 0.65em;
+              background-color: var(--global-code-bg-color);
+              color: var(--global-text-color);
+              border: 1px solid var(--global-divider-color);
+              font-weight: 500;
+            "
+          >{{ keyword | strip }}</span>
+        {% endfor %}
+      </div>
     {% endif %}
 
     <div class="links">
