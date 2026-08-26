@@ -2,7 +2,43 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col-12 col-md-4 abbr" style="padding-right: 1.25rem; margin-bottom: 0.85rem;">
+    <div class="col-12 col-md-6 abbr" style="padding-right: 1.25rem; margin-bottom: 0.85rem;">
+      {% if entry.abbr %}
+        {% assign venue = site.data.venues[entry.abbr] %}
+
+        {% if entry.type == 'article' %}
+          {% assign badge_color = '#2E7D32' %}
+        {% else %}
+          {% assign badge_color = '#1565C0' %}
+        {% endif %}
+
+        <div style="width: 100%; margin-bottom: 0.5rem;">
+          <abbr
+            class="badge rounded"
+            style="
+              width: 100%;
+              display: block;
+              box-sizing: border-box;
+              background-color: {{ badge_color }} !important;
+              color: #ffffff !important;
+              padding: 0.55em 0.75em;
+              font-size: 1.05rem;
+              font-weight: 700;
+              letter-spacing: 0.01em;
+              text-align: center;
+            "
+          >
+            {% if venue and venue.url %}
+              <a href="{{ venue.url }}" style="color: #ffffff !important; text-decoration: none; display: block; width: 100%;">
+                {{ entry.abbr }}
+              </a>
+            {% else %}
+              <span style="color: #ffffff !important; display: block; width: 100%;">{{ entry.abbr }}</span>
+            {% endif %}
+          </abbr>
+        </div>
+      {% endif %}
+
       {% if entry.preview %}
         {% assign preview_ext = entry.preview | split: '.' | last | downcase %}
         {% assign preview_path = entry.preview %}
@@ -55,41 +91,10 @@
           {% endif %}
         </div>
       {% endif %}
-
-      {% if entry.abbr %}
-        {% assign venue = site.data.venues[entry.abbr] %}
-
-        {% if entry.type == 'article' %}
-          {% assign badge_color = '#2E7D32' %}
-        {% else %}
-          {% assign badge_color = '#1565C0' %}
-        {% endif %}
-
-        <div style="margin-top: 0.55rem; text-align: center;">
-          <abbr
-            class="badge rounded"
-            style="
-              background-color: {{ badge_color }} !important;
-              color: #ffffff !important;
-              padding: 0.45em 0.95em;
-              min-width: 5.4rem;
-              display: inline-block;
-              font-size: 1.02rem;
-              letter-spacing: 0.01em;
-            "
-          >
-            {% if venue and venue.url %}
-              <a href="{{ venue.url }}" style="color: #ffffff !important; text-decoration: none;">{{ entry.abbr }}</a>
-            {% else %}
-              <span style="color: #ffffff !important;">{{ entry.abbr }}</span>
-            {% endif %}
-          </abbr>
-        </div>
-      {% endif %}
     </div>
   {% endif %}
 
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-12 col-md-8{% else %}col-12{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-12 col-md-6{% else %}col-12{% endif %}">
     <div class="title">{{ entry.title }}</div>
 
     <div class="author">
