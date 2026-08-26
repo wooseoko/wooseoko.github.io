@@ -1,0 +1,160 @@
+---
+---
+<div class="row">
+  {% if site.enable_publication_thumbnails %}
+    <div class="col col-sm-2 abbr">
+      {% if entry.abbr %}
+        {% assign venue = site.data.venues[entry.abbr] %}
+        {% if venue and venue.color %}
+          <abbr class="badge rounded w-100" style="background-color: {{ venue.color }};">
+            {% if venue.url %}
+              <a href="{{ venue.url }}">{{ entry.abbr }}</a>
+            {% else %}
+              <div>{{ entry.abbr }}</div>
+            {% endif %}
+          </abbr>
+        {% else %}
+          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+        {% endif %}
+      {% endif %}
+
+      {% if entry.preview %}
+        {% assign preview_ext = entry.preview | split: '.' | last | downcase %}
+        {% assign preview_path = entry.preview %}
+        {% unless entry.preview contains '://' %}
+          {% assign preview_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+        {% endunless %}
+
+        {% if preview_ext == 'mp4' or preview_ext == 'webm' or preview_ext == 'ogg' or preview_ext == 'mov' %}
+          <video class="preview z-depth-1 rounded" autoplay muted loop playsinline preload="metadata">
+            <source src="{{ preview_path }}">
+          </video>
+        {% else %}
+          <img
+            class="preview z-depth-1 rounded"
+            src="{{ preview_path }}"
+            alt="{{ entry.title | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+    <div class="title">{{ entry.title }}</div>
+
+    <div class="author">
+      {% assign author_count = entry.author_array | size %}
+      {% assign penultimate_author = author_count | minus: 1 %}
+      {% for author in entry.author_array %}
+        {% assign clean_last = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' %}
+        {% assign marked_last = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' %}
+        {% assign is_self = false %}
+
+        {% if site.scholar.last_name contains clean_last %}
+          {% if site.scholar.first_name contains author.first %}
+            {% assign is_self = true %}
+          {% endif %}
+        {% endif %}
+
+        {% if is_self %}
+          <strong class="author-self">{{ author.first }} {{ marked_last }}</strong>
+        {% else %}
+          {{ author.first }} {{ marked_last }}
+        {% endif %}
+
+        {% unless forloop.last %}
+          {% if forloop.index == penultimate_author %}
+            and
+          {% else %}
+            ,
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+
+    {% if entry.annotation %}
+      <div class="periodical">
+        <small>{{ entry.annotation }}</small>
+      </div>
+    {% endif %}
+
+    {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
+    <div class="periodical">
+      {% if entry.type == 'article' %}
+        <em>{{ entry.journal }}</em>
+      {% elsif proceedings contains entry.type %}
+        <em>In {{ entry.booktitle }}</em>
+      {% endif %}
+      {% if entry.month %}, {{ entry.month | capitalize }}{% endif %}
+      {% if entry.year %}, {{ entry.year }}{% endif %}
+    </div>
+
+    {% if entry.note %}
+      <div class="periodical">{{ entry.note }}</div>
+    {% endif %}
+
+    <div class="links">
+      {% if entry.doi %}
+        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
+      {% endif %}
+
+      {% if entry.arxiv %}
+        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+      {% endif %}
+
+      {% if entry.pdf %}
+        {% if entry.pdf contains '://' %}
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+        {% else %}
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+        {% endif %}
+      {% endif %}
+
+      {% if entry.code %}
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+      {% endif %}
+
+      {% if entry.dataset %}
+        <a href="{{ entry.dataset }}" class="btn btn-sm z-depth-0" role="button">Dataset</a>
+      {% endif %}
+
+      {% if entry.website %}
+        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+      {% endif %}
+
+      {% if entry.video %}
+        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
+      {% endif %}
+
+      {% if entry.poster %}
+        {% if entry.poster contains '://' %}
+          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+        {% else %}
+          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+        {% endif %}
+      {% endif %}
+
+      {% if entry.slides %}
+        {% if entry.slides contains '://' %}
+          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+        {% else %}
+          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+        {% endif %}
+      {% endif %}
+
+      {% if entry.bibtex_show %}
+        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+      {% endif %}
+    </div>
+
+    {% if entry.bibtex_show %}
+      <div class="bibtex hidden">
+        {% highlight bibtex %}
+        {{- entry.bibtex | hideCustomBibtex -}}
+        {% endhighlight %}
+      </div>
+    {% endif %}
+  </div>
+</div>
