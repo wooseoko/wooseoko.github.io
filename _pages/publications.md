@@ -9,7 +9,7 @@ _styles: |
 /* Widen only this Publications page on desktop. */
 @media (min-width: 992px) {
 .post {
-width: min(1400px, calc(100vw - 64px));
+width: min(1300px, calc(100vw - 64px));
 max-width: none;
 position: relative;
 left: 50%;
