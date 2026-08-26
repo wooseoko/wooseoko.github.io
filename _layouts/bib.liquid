@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-2 abbr">
+    <div class="col-12 col-md-4 abbr" style="padding-right: 1.25rem; margin-bottom: 0.75rem;">
       {% if entry.abbr %}
         {% assign venue = site.data.venues[entry.abbr] %}
 
@@ -36,6 +36,14 @@
             loop
             playsinline
             preload="metadata"
+            style="
+              width: 100%;
+              height: 210px;
+              display: block;
+              object-fit: cover;
+              object-position: center;
+              background: #000;
+            "
           >
             <source src="{{ preview_path }}">
           </video>
@@ -45,13 +53,21 @@
             src="{{ preview_path }}"
             alt="{{ entry.title | escape }}"
             loading="lazy"
+            style="
+              width: 100%;
+              height: 210px;
+              display: block;
+              object-fit: contain;
+              object-position: center;
+              background: var(--global-bg-color);
+            "
           >
         {% endif %}
       {% endif %}
     </div>
   {% endif %}
 
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-12 col-md-8{% else %}col-12{% endif %}">
     <div class="title">{{ entry.title }}</div>
 
     <div class="author">
