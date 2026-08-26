@@ -1,4 +1,3 @@
-```yaml
 ---
 layout: page
 title: experience
@@ -7,7 +6,6 @@ description: Research projects and teaching experience.
 nav: true
 nav_order: 3
 ---
-```
 
 ## Research Projects
 
