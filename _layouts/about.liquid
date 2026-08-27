@@ -43,6 +43,10 @@ layout: default
     text-align: center;
   }
 
+  .selected-publications-section {
+    margin-top: 3rem;
+  }
+
   .about-sidebar .contact-icons {
     display: flex;
     flex-wrap: wrap;
@@ -185,10 +189,14 @@ layout: default
 
     <!-- Selected Publications -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
+      <section class="selected-publications-section">
+        <h2>
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">
+            selected publications
+          </a>
+        </h2>
+        {% include selected_papers.liquid %}
+      </section>
     {% endif %}
 
     <!-- News -->
