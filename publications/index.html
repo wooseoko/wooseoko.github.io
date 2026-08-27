@@ -122,29 +122,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -172,6 +150,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -187,7 +215,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>IROS</span> </div> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros26_humanoid.mp4"></source> </video> </div> </div> <div id="kee2026humanoid" class="pub-custom-info"> <div class="title">Learning Humanoid Loco-Manipulation with Responsibility-Induced Specialized Experts for Vision-Language-Action Models</div> <div class="author"> Hogun Kee<sup>*</sup> , <strong style="font-weight: 700;">Wooseok Oh<sup>*</sup></strong> , Jooyoung Kim , Jaeyeon Jeong , Hyewoo Jeong , Hyeondal Son , Ho Sung Lee , Minjae Kang and Songhwai Oh </div> <div class="periodical"> <strong style="font-weight: 700;">* Equal contribution.</strong> </div> <div class="periodical"> <em>In 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , 2026 </div> <div class="periodical">Accepted.</div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Robot Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Vision-Language-Action Models</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Humanoid Robotics</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Loco-Manipulation</span> </div> <div class="links"> <a href="https://rllab-snu.github.io/projects/RISE/" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Website</a> <a href="https://www.youtube.com/watch?v=t13_h03ouIQ" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Video</a> </div> </div> </div> </li></ol> <h2 class="bibliography">2025</h2> <ol class="bibliography"> <li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros26_humanoid.mp4"></source> </video> </div> </div> <div id="kee2026humanoid" class="pub-custom-info"> <div class="title"> Learning Humanoid Loco-Manipulation with Responsibility-Induced Specialized Experts for Vision-Language-Action Models </div> <div class="author"> Hogun Kee<sup>*</sup> , <strong style="font-weight: 700;"> Wooseok Oh<sup>*</sup> </strong> , Jooyoung Kim , Jaeyeon Jeong , Hyewoo Jeong , Hyeondal Son , Ho Sung Lee , Minjae Kang and Songhwai Oh </div> <div class="periodical"> <strong style="font-weight: 700;"> * Equal contribution. </strong> </div> <div class="periodical"> <em>In 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , 2026 </div> <div class="periodical"> Accepted. </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> IROS </span> <span class="pub-meta-tag pub-keyword"> Robot Learning </span> <span class="pub-meta-tag pub-keyword"> Vision-Language-Action Models </span> <span class="pub-meta-tag pub-keyword"> Humanoid Robotics </span> <span class="pub-meta-tag pub-keyword"> Loco-Manipulation </span> </div> <div class="links"> <a href="https://rllab-snu.github.io/projects/RISE/" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Website </a> <a href="https://www.youtube.com/watch?v=t13_h03ouIQ" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Video </a> </div> </div> </div> </li></ol> <h2 class="bibliography">2025</h2> <ol class="bibliography"> <li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -207,29 +235,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -257,6 +263,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -272,7 +328,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #2E7D32 !important;"> <span>RA-L</span> </div> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/ral25_tidiness.mp4"></source> </video> </div> </div> <div id="kee2025tidiness" class="pub-custom-info"> <div class="title">Tidiness Score-Guided Monte Carlo Tree Search for Visual Tabletop Rearrangement</div> <div class="author"> Hogun Kee , <strong style="font-weight: 700;">Wooseok Oh</strong> , Minjae Kang , Hyemin Ahn and Songhwai Oh </div> <div class="periodical"> <em>IEEE Robotics and Automation Letters</em> , Oct , 2025 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Robot Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Tabletop Rearrangement</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Task Planning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Monte Carlo Tree Search</span> </div> <div class="links"> <a href="https://doi.org/10.1109/LRA.2025.3597822" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> <a href="https://arxiv.org/abs/2502.17235" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a> <a href="https://github.com/rllab-snu/TTU-Dataset" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Dataset</a> <a href="https://www.youtube.com/watch?v=uVFTlOq-sxg" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Video</a> </div> </div> </div> </li> <li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/ral25_tidiness.mp4"></source> </video> </div> </div> <div id="kee2025tidiness" class="pub-custom-info"> <div class="title"> Tidiness Score-Guided Monte Carlo Tree Search for Visual Tabletop Rearrangement </div> <div class="author"> Hogun Kee , <strong style="font-weight: 700;"> Wooseok Oh </strong> , Minjae Kang , Hyemin Ahn and Songhwai Oh </div> <div class="periodical"> <em>IEEE Robotics and Automation Letters</em> , Oct , 2025 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-journal"> RA-L </span> <span class="pub-meta-tag pub-keyword"> Robot Learning </span> <span class="pub-meta-tag pub-keyword"> Tabletop Rearrangement </span> <span class="pub-meta-tag pub-keyword"> Task Planning </span> <span class="pub-meta-tag pub-keyword"> Monte Carlo Tree Search </span> </div> <div class="links"> <a href="https://doi.org/10.1109/LRA.2025.3597822" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> <a href="https://arxiv.org/abs/2502.17235" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> arXiv </a> <a href="https://github.com/rllab-snu/TTU-Dataset" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Dataset </a> <a href="https://www.youtube.com/watch?v=uVFTlOq-sxg" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Video </a> </div> </div> </div> </li> <li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -292,29 +348,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -342,6 +376,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -357,7 +441,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>IROS</span> </div> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros25_scenegraph.mp4"></source> </video> </div> </div> <div id="oh2025language" class="pub-custom-info"> <div class="title">Language-Guided Hierarchical Planning with Scene Graphs for Tabletop Object Rearrangement</div> <div class="author"> <strong style="font-weight: 700;">Wooseok Oh</strong> , Hogun Kee and Songhwai Oh </div> <div class="periodical"> <em>In 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2025 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">High-Level Planning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Language-Guided Planning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Scene Graphs</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Tabletop Rearrangement</span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS60139.2025.11247525" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> <a href="https://www.youtube.com/watch?v=v2KtgnkRj-8" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Video</a> </div> </div> </div> </li> </ol> <h2 class="bibliography">2023</h2> <ol class="bibliography"><li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros25_scenegraph.mp4"></source> </video> </div> </div> <div id="oh2025language" class="pub-custom-info"> <div class="title"> Language-Guided Hierarchical Planning with Scene Graphs for Tabletop Object Rearrangement </div> <div class="author"> <strong style="font-weight: 700;"> Wooseok Oh </strong> , Hogun Kee and Songhwai Oh </div> <div class="periodical"> <em>In 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2025 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> IROS </span> <span class="pub-meta-tag pub-keyword"> High-Level Planning </span> <span class="pub-meta-tag pub-keyword"> Language-Guided Planning </span> <span class="pub-meta-tag pub-keyword"> Scene Graphs </span> <span class="pub-meta-tag pub-keyword"> Tabletop Rearrangement </span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS60139.2025.11247525" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> <a href="https://www.youtube.com/watch?v=v2KtgnkRj-8" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Video </a> </div> </div> </div> </li> </ol> <h2 class="bibliography">2023</h2> <ol class="bibliography"><li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -377,29 +461,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -427,6 +489,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -442,7 +554,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #2E7D32 !important;"> <span>PRL</span> </div> <div class="pub-preview-frame z-depth-1"> <img src="/assets/img/publication_preview/LSViT_image.png" alt="Local Selective Vision Transformer for Depth Estimation Using a Compound Eye Camera" loading="lazy"> </div> </div> <div id="oh2023local" class="pub-custom-info"> <div class="title">Local Selective Vision Transformer for Depth Estimation Using a Compound Eye Camera</div> <div class="author"> <strong style="font-weight: 700;">Wooseok Oh</strong> , Hwiyeon Yoo , Taeoh Ha and Songhwai Oh </div> <div class="periodical"> <em>Pattern Recognition Letters</em> , Mar , 2023 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Computer Vision</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Depth Estimation</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Vision Transformer</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Compound Eye Camera</span> </div> <div class="links"> <a href="https://doi.org/10.1016/j.patrec.2023.02.010" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> </div> </div> </div> </li></ol> <h2 class="bibliography">2022</h2> <ol class="bibliography"> <li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <img src="/assets/img/publication_preview/LSViT_image.png" alt="Local Selective Vision Transformer for Depth Estimation Using a Compound Eye Camera" loading="lazy"> </div> </div> <div id="oh2023local" class="pub-custom-info"> <div class="title"> Local Selective Vision Transformer for Depth Estimation Using a Compound Eye Camera </div> <div class="author"> <strong style="font-weight: 700;"> Wooseok Oh </strong> , Hwiyeon Yoo , Taeoh Ha and Songhwai Oh </div> <div class="periodical"> <em>Pattern Recognition Letters</em> , Mar , 2023 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-journal"> PRL </span> <span class="pub-meta-tag pub-keyword"> Computer Vision </span> <span class="pub-meta-tag pub-keyword"> Depth Estimation </span> <span class="pub-meta-tag pub-keyword"> Vision Transformer </span> <span class="pub-meta-tag pub-keyword"> Compound Eye Camera </span> </div> <div class="links"> <a href="https://doi.org/10.1016/j.patrec.2023.02.010" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> </div> </div> </div> </li></ol> <h2 class="bibliography">2022</h2> <ol class="bibliography"> <li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -462,29 +574,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -512,6 +602,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -527,7 +667,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>ICCAS</span> </div> </div> <div id="lee2022semisupervised" class="pub-custom-info"> <div class="title">Semi-Supervised Imitation Learning with Mixed Qualities of Demonstrations for Autonomous Driving</div> <div class="author"> Gunmin Lee , <strong style="font-weight: 700;">Wooseok Oh</strong> , Jeongwoo Oh , Seungyoun Shin , Dohyeong Kim , Jaeyeon Jeong , Sungjoon Choi and Songhwai Oh </div> <div class="periodical"> <em>In 2022 22nd International Conference on Control, Automation and Systems (ICCAS)</em> , Nov , 2022 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Imitation Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Semi-Supervised Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Autonomous Driving</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Mixed-Quality Demonstrations</span> </div> <div class="links"> <a href="https://doi.org/10.23919/ICCAS55662.2022.10003738" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> <a href="https://arxiv.org/abs/2109.11280" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a> </div> </div> </div> </li> <li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> </div> <div id="lee2022semisupervised" class="pub-custom-info"> <div class="title"> Semi-Supervised Imitation Learning with Mixed Qualities of Demonstrations for Autonomous Driving </div> <div class="author"> Gunmin Lee , <strong style="font-weight: 700;"> Wooseok Oh </strong> , Jeongwoo Oh , Seungyoun Shin , Dohyeong Kim , Jaeyeon Jeong , Sungjoon Choi and Songhwai Oh </div> <div class="periodical"> <em>In 2022 22nd International Conference on Control, Automation and Systems (ICCAS)</em> , Nov , 2022 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> ICCAS </span> <span class="pub-meta-tag pub-keyword"> Imitation Learning </span> <span class="pub-meta-tag pub-keyword"> Semi-Supervised Learning </span> <span class="pub-meta-tag pub-keyword"> Autonomous Driving </span> <span class="pub-meta-tag pub-keyword"> Mixed-Quality Demonstrations </span> </div> <div class="links"> <a href="https://doi.org/10.23919/ICCAS55662.2022.10003738" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> <a href="https://arxiv.org/abs/2109.11280" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> arXiv </a> </div> </div> </div> </li> <li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -547,29 +687,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -597,6 +715,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -612,7 +780,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>IROS</span> </div> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros22_defensive.mp4"></source> </video> </div> </div> <div id="oh2022defensive" class="pub-custom-info"> <div class="title">Towards Defensive Autonomous Driving: Collecting and Probing Driving Demonstrations of Mixed Qualities</div> <div class="author"> Jeongwoo Oh , Gunmin Lee , Jeongeun Park , <strong style="font-weight: 700;">Wooseok Oh</strong> , Jaeseok Heo , Hojun Chung , Do Hyung Kim , Byungkyu Park , Chang-Gun Lee , Sungjoon Choi and Songhwai Oh </div> <div class="periodical"> <em>In 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2022 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Autonomous Driving</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Defensive Driving</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Imitation Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Driving Dataset</span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS47612.2022.9981110" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> <a href="https://arxiv.org/abs/2109.07995" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">arXiv</a> <a href="https://rllab-snu.github.io/projects/R3-Driving-Dataset/doc.html" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Website</a> <a href="https://www.youtube.com/watch?v=BSajtGNlbnM" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Video</a> </div> </div> </div> </li> </ol> <h2 class="bibliography">2021</h2> <ol class="bibliography"><li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros22_defensive.mp4"></source> </video> </div> </div> <div id="oh2022defensive" class="pub-custom-info"> <div class="title"> Towards Defensive Autonomous Driving: Collecting and Probing Driving Demonstrations of Mixed Qualities </div> <div class="author"> Jeongwoo Oh , Gunmin Lee , Jeongeun Park , <strong style="font-weight: 700;"> Wooseok Oh </strong> , Jaeseok Heo , Hojun Chung , Do Hyung Kim , Byungkyu Park , Chang-Gun Lee , Sungjoon Choi and Songhwai Oh </div> <div class="periodical"> <em>In 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2022 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> IROS </span> <span class="pub-meta-tag pub-keyword"> Autonomous Driving </span> <span class="pub-meta-tag pub-keyword"> Defensive Driving </span> <span class="pub-meta-tag pub-keyword"> Imitation Learning </span> <span class="pub-meta-tag pub-keyword"> Driving Dataset </span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS47612.2022.9981110" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> <a href="https://arxiv.org/abs/2109.07995" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> arXiv </a> <a href="https://rllab-snu.github.io/projects/R3-Driving-Dataset/doc.html" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Website </a> <a href="https://www.youtube.com/watch?v=BSajtGNlbnM" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Video </a> </div> </div> </div> </li> </ol> <h2 class="bibliography">2021</h2> <ol class="bibliography"><li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -632,29 +800,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -682,6 +828,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -697,7 +893,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>ICCAS</span> </div> <div class="pub-preview-frame z-depth-1"> <img src="/assets/img/publication_preview/3DRecon_CompoundEye_image.png" alt="Vision-Based 3D Reconstruction Using a Compound Eye Camera" loading="lazy"> </div> </div> <div id="oh2021vision" class="pub-custom-info"> <div class="title">Vision-Based 3D Reconstruction Using a Compound Eye Camera</div> <div class="author"> <strong style="font-weight: 700;">Wooseok Oh</strong> , Hwiyeon Yoo , Timothy Ha and Songhwai Oh </div> <div class="periodical"> <em>In 2021 21st International Conference on Control, Automation and Systems (ICCAS)</em> , Oct , 2021 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">3D Reconstruction</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Depth Estimation</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Compound Eye Camera</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Computer Vision</span> </div> <div class="links"> <a href="https://doi.org/10.23919/ICCAS52745.2021.9649968" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> </div> </div> </div> </li></ol> <h2 class="bibliography">2020</h2> <ol class="bibliography"><li> <style>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <img src="/assets/img/publication_preview/3DRecon_CompoundEye_image.png" alt="Vision-Based 3D Reconstruction Using a Compound Eye Camera" loading="lazy"> </div> </div> <div id="oh2021vision" class="pub-custom-info"> <div class="title"> Vision-Based 3D Reconstruction Using a Compound Eye Camera </div> <div class="author"> <strong style="font-weight: 700;"> Wooseok Oh </strong> , Hwiyeon Yoo , Timothy Ha and Songhwai Oh </div> <div class="periodical"> <em>In 2021 21st International Conference on Control, Automation and Systems (ICCAS)</em> , Oct , 2021 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> ICCAS </span> <span class="pub-meta-tag pub-keyword"> 3D Reconstruction </span> <span class="pub-meta-tag pub-keyword"> Depth Estimation </span> <span class="pub-meta-tag pub-keyword"> Compound Eye Camera </span> <span class="pub-meta-tag pub-keyword"> Computer Vision </span> </div> <div class="links"> <a href="https://doi.org/10.23919/ICCAS52745.2021.9649968" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> </div> </div> </div> </li></ol> <h2 class="bibliography">2020</h2> <ol class="bibliography"><li> <style>
   .pub-custom-row {
     display: flex;
     flex-wrap: nowrap;
@@ -717,29 +913,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -767,6 +941,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -782,7 +1006,7 @@
       margin-bottom: 1rem;
     }
   }
-</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-venue-bar" style="background-color: #1565C0 !important;"> <span>IROS</span> </div> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros20_mixgail.mp4"></source> </video> </div> </div> <div id="lee2020mixgail" class="pub-custom-info"> <div class="title">MixGAIL: Autonomous Driving Using Demonstrations with Mixed Qualities</div> <div class="author"> Gunmin Lee , Dohyeong Kim , <strong style="font-weight: 700;">Wooseok Oh</strong> , Kyungjae Lee and Songhwai Oh </div> <div class="periodical"> <em>In 2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2020 </div> <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;"> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Imitation Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Generative Adversarial Imitation Learning</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Autonomous Driving</span> <span class="badge rounded-pill" style=" margin-right: 0.25rem; margin-bottom: 0.25rem; padding: 0.35em 0.65em; background-color: var(--global-code-bg-color); color: var(--global-text-color); border: 1px solid var(--global-divider-color); font-weight: 500; ">Mixed-Quality Demonstrations</span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS45743.2020.9341104" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Paper</a> <a href="https://www.youtube.com/watch?v=4Ozcn9T6RRM" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">Video</a> </div> </div> </div> </li></ol> </div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Wooseok Oh. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script>
+</style> <div class="pub-custom-row"> <div class="pub-custom-media"> <div class="pub-preview-frame z-depth-1"> <video autoplay="" muted="" loop="" playsinline="" preload="metadata"> <source src="/assets/img/publication_preview/iros20_mixgail.mp4"></source> </video> </div> </div> <div id="lee2020mixgail" class="pub-custom-info"> <div class="title"> MixGAIL: Autonomous Driving Using Demonstrations with Mixed Qualities </div> <div class="author"> Gunmin Lee , Dohyeong Kim , <strong style="font-weight: 700;"> Wooseok Oh </strong> , Kyungjae Lee and Songhwai Oh </div> <div class="periodical"> <em>In 2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em> , Oct , 2020 </div> <div class="pub-meta-tags"> <span class="pub-meta-tag pub-venue-conference"> IROS </span> <span class="pub-meta-tag pub-keyword"> Imitation Learning </span> <span class="pub-meta-tag pub-keyword"> Generative Adversarial Imitation Learning </span> <span class="pub-meta-tag pub-keyword"> Autonomous Driving </span> <span class="pub-meta-tag pub-keyword"> Mixed-Quality Demonstrations </span> </div> <div class="links"> <a href="https://doi.org/10.1109/IROS45743.2020.9341104" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Paper </a> <a href="https://www.youtube.com/watch?v=4Ozcn9T6RRM" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank"> Video </a> </div> </div> </div> </li></ol> </div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Wooseok Oh. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
