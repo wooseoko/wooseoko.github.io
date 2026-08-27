@@ -3,79 +3,172 @@ layout: default
 ---
 
 <style>
-  .about-contact-profile {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
-    margin: 1.8rem 0 2.4rem;
+  /*
+   * About page layout:
+   * - Keep the normal al-folio reading width for the main content.
+   * - On wide desktop screens, place profile + social links outside
+   *   the main content column, in the unused left margin.
+   */
+
+  .about-shell {
+    position: relative;
   }
 
-  .about-contact-profile .about-contact {
-    flex: 1 1 auto;
-    min-width: 0;
-    text-align: left;
+  .about-sidebar {
+    position: absolute;
+    top: 0.15rem;
+    left: -235px;
+    width: 190px;
+    text-align: center;
   }
 
-  .about-contact-profile .about-contact .social {
-    text-align: left;
-    margin: 0;
+  .about-sidebar-photo {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1rem;
   }
 
-  .about-contact-profile .about-contact .contact-icons {
-    text-align: left;
-    font-size: 1.55rem;
-    line-height: 1.5;
-  }
-
-  .about-contact-profile .about-contact .contact-note {
-    text-align: left;
-    margin-top: 0.5rem;
-  }
-
-  .about-contact-profile .about-profile-photo {
-    flex: 0 0 210px;
-    width: 210px;
-  }
-
-  .about-contact-profile .about-profile-photo img {
-    width: 210px;
-    height: 210px;
+  .about-sidebar-photo img {
+    width: 180px !important;
+    height: 180px !important;
+    max-width: none !important;
     display: block;
     object-fit: cover;
     object-position: center;
     border-radius: 50% !important;
   }
 
-  .about-contact-profile .more-info {
-    margin-top: 0.75rem;
-    text-align: left;
+  .about-sidebar .social {
+    margin: 0;
+    text-align: center;
   }
 
-  @media (max-width: 767.98px) {
-    .about-contact-profile {
-      flex-direction: column-reverse;
-      align-items: flex-start;
-      gap: 1.25rem;
-    }
+  .about-sidebar .contact-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    font-size: 1.45rem;
+    line-height: 1.4;
+  }
 
-    .about-contact-profile .about-profile-photo {
-      flex-basis: auto;
-      width: 170px;
-    }
+  .about-sidebar .contact-icons a {
+    margin: 0 !important;
+  }
 
-    .about-contact-profile .about-profile-photo img {
-      width: 170px;
-      height: 170px;
-    }
+  .about-sidebar .contact-note {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: center;
+  }
 
-    .about-contact-profile .about-contact {
+  .about-sidebar .more-info {
+    margin-top: 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  /*
+   * When there is not enough left margin, move the profile block
+   * back into the normal document flow above the biography.
+   */
+  @media (max-width: 1279.98px) {
+    .about-sidebar {
+      position: static;
       width: 100%;
+      margin: 0 0 1.75rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .about-sidebar-photo {
+      flex: 0 0 145px;
+      width: 145px;
+      height: 145px;
+      margin: 0;
+    }
+
+    .about-sidebar-photo img {
+      width: 145px !important;
+      height: 145px !important;
+    }
+
+    .about-sidebar-details {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .about-sidebar .social,
+    .about-sidebar .contact-note,
+    .about-sidebar .more-info {
+      text-align: left;
+    }
+
+    .about-sidebar .contact-icons {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .about-sidebar {
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-sidebar-photo {
+      width: 135px;
+      height: 135px;
+      margin-bottom: 1rem;
+    }
+
+    .about-sidebar-photo img {
+      width: 135px !important;
+      height: 135px !important;
     }
   }
 </style>
 
-<div class="post">
+<div class="post about-shell">
+  <!-- Sidebar: outside the normal reading column on wide desktop -->
+  {% if page.profile or page.social %}
+    <aside class="about-sidebar">
+      {% if page.profile and page.profile.image %}
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        <div class="about-sidebar-photo">
+          {% include figure.liquid
+            loading="eager"
+            path=profile_image_path
+            class="img-fluid z-depth-1"
+            alt=page.profile.image
+            cache_bust=true
+          %}
+        </div>
+      {% endif %}
+
+      <div class="about-sidebar-details">
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% social_links %}</div>
+            {% if site.contact_note %}
+              <div class="contact-note">{{ site.contact_note }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if page.profile and page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+      </div>
+    </aside>
+  {% endif %}
+
+  <!-- Main content keeps the normal al-folio width -->
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
@@ -86,47 +179,17 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+
+    {% if page.subtitle %}
+      <p class="desc">{{ page.subtitle }}</p>
+    {% endif %}
   </header>
 
   <article>
-    <!-- About text first -->
+    <!-- Biography / About text -->
     <div class="clearfix">{{ content }}</div>
 
-    <!-- Contact/social links on the left, circular profile photo on the right -->
-    {% if page.social or page.profile %}
-      <div class="about-contact-profile">
-        <div class="about-contact">
-          {% if page.social %}
-            <div class="social">
-              <div class="contact-icons">{% social_links %}</div>
-              {% if site.contact_note %}
-                <div class="contact-note">{{ site.contact_note }}</div>
-              {% endif %}
-            </div>
-          {% endif %}
-
-          {% if page.profile and page.profile.more_info %}
-            <div class="more-info">{{ page.profile.more_info }}</div>
-          {% endif %}
-        </div>
-
-        {% if page.profile and page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          <div class="about-profile-photo">
-            {% include figure.liquid
-              loading="eager"
-              path=profile_image_path
-              class="img-fluid z-depth-1 rounded-circle"
-              alt=page.profile.image
-              cache_bust=true
-            %}
-          </div>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <!-- Selected papers immediately below the contact/profile row -->
+    <!-- Selected Publications -->
     {% if page.selected_papers %}
       <h2>
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
@@ -142,7 +205,7 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Latest posts -->
+    <!-- Latest Posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
