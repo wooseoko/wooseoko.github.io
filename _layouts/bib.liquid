@@ -1,5 +1,6 @@
 ---
 ---
+
 <style>
   .pub-custom-row {
     display: flex;
@@ -20,29 +21,7 @@
     min-width: 0;
   }
 
-  .pub-venue-bar {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 0 0.5rem 0;
-    padding: 0.55em 0.75em;
-    border-radius: 0.3rem;
-    color: #fff !important;
-    text-align: center;
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-  }
-
-  .pub-venue-bar a,
-  .pub-venue-bar span {
-    display: block;
-    width: 100%;
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-
+  /* Thumbnail */
   .pub-preview-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -70,6 +49,56 @@
     object-position: center;
   }
 
+  /* Venue + keyword pills */
+  .pub-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .pub-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.32rem 0.68rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Conference venue: IROS, ICCAS */
+  .pub-venue-conference {
+    background-color: #1565c0;
+    color: #ffffff !important;
+    border: 1px solid #1565c0;
+    font-weight: 700;
+  }
+
+  /* Journal venue: RA-L, PRL */
+  .pub-venue-journal {
+    background-color: #2e7d32;
+    color: #ffffff !important;
+    border: 1px solid #2e7d32;
+    font-weight: 700;
+  }
+
+  .pub-venue-conference a,
+  .pub-venue-journal a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Ordinary research keywords */
+  .pub-keyword {
+    background-color: var(--global-code-bg-color);
+    color: var(--global-text-color);
+    border: 1px solid var(--global-divider-color);
+    font-weight: 500;
+  }
+
   @media (max-width: 767.98px) {
     .pub-custom-row {
       display: block;
@@ -87,179 +116,403 @@
   }
 </style>
 
+
 <div class="pub-custom-row">
+
   {% if site.enable_publication_thumbnails %}
     <div class="pub-custom-media">
-      {% if entry.abbr %}
-        {% assign venue = site.data.venues[entry.abbr] %}
-        {% if entry.type == 'article' %}
-          {% assign badge_color = '#2E7D32' %}
-        {% else %}
-          {% assign badge_color = '#1565C0' %}
-        {% endif %}
-
-        <div class="pub-venue-bar" style="background-color: {{ badge_color }} !important;">
-          {% if venue and venue.url %}
-            <a href="{{ venue.url }}">{{ entry.abbr }}</a>
-          {% else %}
-            <span>{{ entry.abbr }}</span>
-          {% endif %}
-        </div>
-      {% endif %}
 
       {% if entry.preview %}
         {% assign preview_ext = entry.preview | split: '.' | last | downcase %}
         {% assign preview_path = entry.preview %}
+
         {% unless entry.preview contains '://' %}
-          {% assign preview_path = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}
+          {% assign preview_path = entry.preview
+            | prepend: '/assets/img/publication_preview/'
+            | relative_url
+          %}
         {% endunless %}
 
         <div class="pub-preview-frame z-depth-1">
-          {% if preview_ext == 'mp4' or preview_ext == 'webm' or preview_ext == 'ogg' or preview_ext == 'mov' %}
+
+          {% if preview_ext == 'mp4'
+            or preview_ext == 'webm'
+            or preview_ext == 'ogg'
+            or preview_ext == 'mov'
+          %}
+
             <video autoplay muted loop playsinline preload="metadata">
               <source src="{{ preview_path }}">
             </video>
+
           {% else %}
-            <img src="{{ preview_path }}" alt="{{ entry.title | escape }}" loading="lazy">
+
+            <img
+              src="{{ preview_path }}"
+              alt="{{ entry.title | escape }}"
+              loading="lazy"
+            >
+
           {% endif %}
+
         </div>
       {% endif %}
+
     </div>
   {% endif %}
 
-  <div id="{{ entry.key }}" class="pub-custom-info">
-<div class="title">{{ entry.title }}</div>
 
+  <div id="{{ entry.key }}" class="pub-custom-info">
+
+    <!-- Title -->
+    <div class="title">
+      {{ entry.title }}
+    </div>
+
+
+    <!-- Authors -->
     <div class="author">
+
       {% assign author_count = entry.author_array | size %}
       {% assign penultimate_author = author_count | minus: 1 %}
 
       {% for author in entry.author_array %}
-        {% assign clean_last = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' %}
-        {% assign marked_last = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' %}
+
+        {% assign clean_last = author.last
+          | regex_replace: '[*∗†‡§¶‖&^]', ''
+        %}
+
+        {% assign marked_last = author.last
+          | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>'
+        %}
 
         {% assign is_self = false %}
+
         {% if clean_last == 'Oh' and author.first == 'Wooseok' %}
           {% assign is_self = true %}
         {% endif %}
 
+
         {% if is_self %}
-          <strong style="font-weight: 700;">{{ author.first }} {{ marked_last }}</strong>
+
+          <strong style="font-weight: 700;">
+            {{ author.first }} {{ marked_last }}
+          </strong>
+
         {% else %}
+
           {{ author.first }} {{ marked_last }}
+
         {% endif %}
 
+
         {% unless forloop.last %}
+
           {% if forloop.index == penultimate_author %}
             and
           {% else %}
             ,
           {% endif %}
+
         {% endunless %}
+
       {% endfor %}
+
     </div>
 
+
+    <!-- Equal contribution / annotation -->
     {% if entry.annotation %}
       <div class="periodical">
-        <strong style="font-weight: 700;">{{ entry.annotation }}</strong>
+        <strong style="font-weight: 700;">
+          {{ entry.annotation }}
+        </strong>
       </div>
     {% endif %}
 
+
+    <!-- Venue full name + date -->
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
+
     <div class="periodical">
+
       {% if entry.type == 'article' %}
+
         <em>{{ entry.journal }}</em>
+
       {% elsif proceedings contains entry.type %}
+
         <em>In {{ entry.booktitle }}</em>
+
       {% endif %}
-      {% if entry.month %}, {{ entry.month | capitalize }}{% endif %}
-      {% if entry.year %}, {{ entry.year }}{% endif %}
+
+      {% if entry.month %}
+        , {{ entry.month | capitalize }}
+      {% endif %}
+
+      {% if entry.year %}
+        , {{ entry.year }}
+      {% endif %}
+
     </div>
 
-    {% if entry.note %}
-      <div class="periodical">{{ entry.note }}</div>
-    {% endif %}
 
-    {% if entry.keywords and page.permalink == '/publications/' %}
-      {% assign keyword_list = entry.keywords | split: ',' %}
-      <div style="margin-top: 0.35rem; margin-bottom: 0.15rem;">
-        {% for keyword in keyword_list %}
-          <span
-            class="badge rounded-pill"
-            style="
-              margin-right: 0.25rem;
-              margin-bottom: 0.25rem;
-              padding: 0.35em 0.65em;
-              background-color: var(--global-code-bg-color);
-              color: var(--global-text-color);
-              border: 1px solid var(--global-divider-color);
-              font-weight: 500;
-            "
-          >{{ keyword | strip }}</span>
-        {% endfor %}
+    <!-- Note -->
+    {% if entry.note %}
+      <div class="periodical">
+        {{ entry.note }}
       </div>
     {% endif %}
 
+
+    <!-- Venue + Keywords -->
+    <!--
+      No page.permalink condition here:
+      this makes the tags appear both on
+      Publications and Home Selected Publications.
+    -->
+    {% if entry.abbr or entry.keywords %}
+
+      <div class="pub-meta-tags">
+
+        <!-- Venue first -->
+        {% if entry.abbr %}
+
+          {% assign venue = site.data.venues[entry.abbr] %}
+
+          {% if entry.type == 'article' %}
+            {% assign venue_class = 'pub-venue-journal' %}
+          {% else %}
+            {% assign venue_class = 'pub-venue-conference' %}
+          {% endif %}
+
+
+          {% if venue and venue.url %}
+
+            <span class="pub-meta-tag {{ venue_class }}">
+              <a href="{{ venue.url }}">
+                {{ entry.abbr }}
+              </a>
+            </span>
+
+          {% else %}
+
+            <span class="pub-meta-tag {{ venue_class }}">
+              {{ entry.abbr }}
+            </span>
+
+          {% endif %}
+
+        {% endif %}
+
+
+        <!-- Keywords -->
+        {% if entry.keywords %}
+
+          {% assign keyword_list = entry.keywords | split: ',' %}
+
+          {% for keyword in keyword_list %}
+
+            <span class="pub-meta-tag pub-keyword">
+              {{ keyword | strip }}
+            </span>
+
+          {% endfor %}
+
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+
+
+    <!-- Links -->
     <div class="links">
+
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
+        <a
+          href="https://doi.org/{{ entry.doi }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Paper
+        </a>
       {% endif %}
+
 
       {% if entry.arxiv %}
-        <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+        <a
+          href="https://arxiv.org/abs/{{ entry.arxiv }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          arXiv
+        </a>
       {% endif %}
+
+
+      <!-- Project Page -->
+      {% if entry.project %}
+        <a
+          href="{{ entry.project }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Project
+        </a>
+      {% endif %}
+
 
       {% if entry.pdf %}
+
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+
+          <a
+            href="{{ entry.pdf }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            PDF
+          </a>
+
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+
+          <a
+            href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            PDF
+          </a>
+
         {% endif %}
+
       {% endif %}
+
 
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+        <a
+          href="{{ entry.code }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Code
+        </a>
       {% endif %}
+
 
       {% if entry.dataset %}
-        <a href="{{ entry.dataset }}" class="btn btn-sm z-depth-0" role="button">Dataset</a>
+        <a
+          href="{{ entry.dataset }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Dataset
+        </a>
       {% endif %}
+
 
       {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+        <a
+          href="{{ entry.website }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Website
+        </a>
       {% endif %}
+
 
       {% if entry.video %}
-        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button">Video</a>
+        <a
+          href="{{ entry.video }}"
+          class="btn btn-sm z-depth-0"
+          role="button"
+        >
+          Video
+        </a>
       {% endif %}
+
 
       {% if entry.poster %}
+
         {% if entry.poster contains '://' %}
-          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+
+          <a
+            href="{{ entry.poster }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            Poster
+          </a>
+
         {% else %}
-          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+
+          <a
+            href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            Poster
+          </a>
+
         {% endif %}
+
       {% endif %}
+
 
       {% if entry.slides %}
+
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+
+          <a
+            href="{{ entry.slides }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            Slides
+          </a>
+
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+
+          <a
+            href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}"
+            class="btn btn-sm z-depth-0"
+            role="button"
+          >
+            Slides
+          </a>
+
         {% endif %}
+
       {% endif %}
+
 
       {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+        <a
+          class="bibtex btn btn-sm z-depth-0"
+          role="button"
+        >
+          Bib
+        </a>
       {% endif %}
+
     </div>
 
+
+    <!-- BibTeX -->
     {% if entry.bibtex_show %}
+
       <div class="bibtex hidden">
+
         {% highlight bibtex %}
         {{- entry.bibtex | hideCustomBibtex -}}
         {% endhighlight %}
+
       </div>
+
     {% endif %}
+
   </div>
+
 </div>
