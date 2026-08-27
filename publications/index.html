@@ -62,18 +62,28 @@
   display: none !important;
 }
 
-/* Make year headings darker, bolder, and aligned to the far left. */
-.publications-wide .publications > h2,
-.publications-wide .publications h2.bibliography {
+/* Force year headings to the far left.
+   al-folio styles h2.year separately and right-aligns it by default. */
+.publications-wide .publications h2.year {
   color: var(--global-text-color) !important;
   opacity: 1 !important;
   font-weight: 800 !important;
-  font-size: 1.9rem;
-  line-height: 1.15;
+  font-size: 1.9rem !important;
+  line-height: 1.15 !important;
+
+  display: block !important;
+  width: 100% !important;
+  float: none !important;
+  clear: both !important;
+
+  text-align: left !important;
   margin-left: 0 !important;
+  margin-right: 0 !important;
   padding-left: 0 !important;
-  margin-top: 2.2rem;
-  margin-bottom: 1.1rem;
+  padding-right: 0 !important;
+
+  margin-top: 2.2rem !important;
+  margin-bottom: 1.1rem !important;
 }
 
 /* Slightly larger publication link buttons. */
