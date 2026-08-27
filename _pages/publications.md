@@ -64,8 +64,8 @@ _styles: |
     display: none !important;
   }
 
-  /* Force year headings to the far left.
-     al-folio styles h2.year separately and right-aligns it by default. */
+  /* Jekyll-Scholar renders grouped years as h2.bibliography. */
+  .publications-wide .publications h2.bibliography,
   .publications-wide .publications h2.year {
     color: var(--global-text-color) !important;
     opacity: 1 !important;
@@ -75,10 +75,17 @@ _styles: |
 
     display: block !important;
     width: 100% !important;
+    max-width: none !important;
+
     float: none !important;
     clear: both !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
 
     text-align: left !important;
+
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding-left: 0 !important;
